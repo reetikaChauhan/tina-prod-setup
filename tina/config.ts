@@ -103,8 +103,8 @@ const solutionCollection: Collection = {
 
 export default defineConfig({
   branch: "",
-  clientId: "",
-  token: "",
+  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
+  token: process.env.TINA_TOKEN,
   media: {
     tina: {
       mediaRoot: "img",
