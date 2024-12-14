@@ -1,0 +1,69 @@
+.admonition {
+  margin-bottom: 1em;
+}
+
+.admonitionHeading {
+  font: var(--ifm-heading-font-weight) var(--ifm-h5-font-size) / var(--ifm-heading-line-height) var(--ifm-heading-font-family);
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+.admonitionHeading code {
+  text-transform: none;
+}
+
+.admonitionIcon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0.4em;
+}
+
+.admonitionIcon svg {
+  display: inline-block;
+  height: 1.6em;
+  width: 1.6em;
+  fill: var(--ifm-alert-foreground-color);
+}
+
+.admonitionContent> :last-child {
+  margin-bottom: 0;
+}
+
+.question {
+  border-left: 5px solid var(--ifm-color-info-dark);
+  background-color: var(    --ifm-color-info-contrast-background);
+}
+
+.note {
+  border-left: 5px solid transparent;
+}
+
+.podcast {
+  border-left: 5px solid yellow;
+  background-color: rgb(250, 250, 234);
+}
+
+.newsletter {
+  border-left: 5px solid gray;
+  background-color: rgb(241, 239, 239);
+}
+
+.company {
+  border-left: 5px solid rgb(83, 83, 248);
+  background-color: rgb(233, 233, 247);
+}
+
+.contribute {
+  border-left: 5px solid pink;
+  background-color: rgb(246, 240, 241);
+}
+
+.book {
+  border-left: 5px solid paleturquoise;
+  background-color: rgb(238, 247, 247);
+}
+
+.expert {
+  border-left: 5px solid paleturquoise;
+  background-color: rgb(238, 247, 247);
+}

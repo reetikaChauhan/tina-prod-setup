@@ -1,0 +1,101 @@
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  width: 20vw;
+  height: 40vh;
+  padding: 5rem;
+  margin: 1rem 0;
+  background-color: rgb(249, 242, 243);
+  border-radius: 20px;
+ 
+}
+
+.cardText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+}
+
+.icon {
+  color: #2A70FB;
+  margin-bottom: 1rem;
+  z-index: 10;
+}
+
+.cardText > h1 {
+  text-transform: uppercase;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: .2px;
+  font-size: 1rem;
+  color: #26282A;
+  width: 20vw;
+}
+
+.cardDescription {
+  display: none;
+}
+
+.cardContainer:hover {
+  background-color: rgba(0, 0, 0, 0.2); 
+}
+
+/* cardContainer hover effect */
+/* .cardContainer:hover .cardDescription {
+  display: block;
+  overflow: auto;
+  font-size: 1rem;
+} */
+
+/* .cardContainer:hover .cardText > h1 {
+  display: none;
+} */
+
+/* .cardContainer:hover .icon {
+  display: none;
+} */
+
+@media screen and (max-width: 966px) {
+   .cardContainer {
+    margin: 2rem 0;
+    width: 40vw;
+    height: 30vh;
+    padding: 10rem;
+  }  
+
+  .cardLink:first-child .cardContainer {
+    margin-top: 0;
+  }
+  .cardLink:last-child .cardContainer {
+    margin-bottom: 5rem;
+  }
+
+  .cardText > h1 {
+    width: 100%;
+  } 
+
+  /* .cardContainer:hover .cardDescription {
+    font-size: 1rem;
+    width: 40vw;
+  } */
+
+  /* .cardContainer:hover {
+    margin: 2rem 0;
+    width: 40vw;
+    height: 30vh;
+    padding: 10rem;
+  } */
+}
+@media screen and (max-width: 450px) {
+  .cardContainer {
+   margin: 2rem 0;
+   width: 4 0vw;
+   height: 30vh;
+   padding: 8rem;
+ };
+ }

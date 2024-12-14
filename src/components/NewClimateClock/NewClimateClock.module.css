@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&family=Raleway:wght@500;700&display=swap');
+
+.clock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  background: #F9F2F3;
+  border-radius: 20px;
+  padding: 1.25rem 2.5rem;
+  position: absolute;
+  top: -5rem;
+  text-align-last: center;
+  width: 100%;
+  max-width: 75vw;
+  text-align: center;
+}
+.clock {
+  animation: openClock 2.5s;
+}
+
+@keyframes openClock {
+  0% {
+    display: none;
+  }
+
+  100% {
+    display: none;
+  }
+}
+
+.countdown {
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.clockHeader {
+  color: #26282A;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 20px; 
+}
+
+.clockMain {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+.clockMain > span {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 2rem;
+  margin: 21px 0;
+}
+
+.number {
+  font-family: 'Roboto', sans-serif; 
+  font-weight: 900;
+  font-size: 2rem;
+  width: 25px; /* prevents ms stuttering */
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  color: #26282A;
+  line-height: 35.8px;
+  padding-bottom: 5px;
+}
+
+.section {
+  letter-spacing: 0.01rem;
+  color: #26282A;
+  font-size: 1rem;
+  color: #26282A;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+}
+
+@media screen and (min-width: 1440px){
+  .clock{
+    max-width: 800px;
+  }
+}
+
+/* Displays clock details for mobile view */
+@media screen and (max-width: 966px) {
+  .clock {
+    max-width: 90vw;
+    overflow: auto;
+    margin-top: 20px;
+  }
+
+  .clockMain {
+    block-size: fit-content;  
+    overflow: auto;
+  }
+
+  .countdown {
+    gap: 0.2rem;
+  }
+
+  html, body { /*prevent mobile scrolling horizontally*/
+    overflow-x: hidden;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .clockHeader {
+    font-size: 1.5rem;
+  }
+  
+  .clock {
+    padding: 1.25rem;
+  }
+  
+  .section {
+    font-size: 0.75rem;
+  }
+  
+  .clockMain > span {
+    font-size: 1rem;
+  }
+
+  .number {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .clock {
+    padding: 1rem 0.5rem;
+  }
+}
