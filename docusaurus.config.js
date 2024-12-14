@@ -26,6 +26,10 @@ const darkCodeTheme = themes.dracula;
         }
       ]
     ],
+    i18n: {
+      defaultLocale: 'en', // Default language is English
+      locales: ['en'], // Only one locale (English) for now
+    },
     presets: [
       [
         "@docusaurus/preset-classic",
