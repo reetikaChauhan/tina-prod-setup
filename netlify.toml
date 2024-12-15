@@ -1,6 +1,6 @@
 [build]
   command = "npm run build && npm run tina:build"
-  publish = "public" # Or wherever your static files are generated
+  publish = "build" # Or wherever your static files are generated
 
 [[redirects]]
   from = "/admin/*"
