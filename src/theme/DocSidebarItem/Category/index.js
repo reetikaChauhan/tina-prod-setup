@@ -1,16 +1,21 @@
 import React, {useEffect, useMemo} from 'react';
 import clsx from 'clsx';
 import { ThemeClassNames, useThemeConfig, usePrevious, Collapsible, useCollapsible } from '@docusaurus/theme-common';
-import {  useDocSidebarItemsExpandedState, isSamePath } from '@docusaurus/theme-common/internal';
+import {isActiveSidebarItem, useDocSidebarItemsExpandedState , isSamePath } from '@docusaurus/theme-common/internal';
 import Link from '@docusaurus/Link';
 import {translate} from '@docusaurus/Translate';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import DocSidebarItems from '@theme/DocSidebarItems';
 import { FaBookOpen } from "react-icons/fa";
 import { MdWindPower } from "react-icons/md";
+import { useLocation } from '@docusaurus/router'; // added to test 
 
-
-
+// test function added by reetika
+//function isActiveSidebar_Item(item, activePath) {
+// const location = useLocation();
+//  const itemPath = item.href || item.to;
+//  return itemPath ? location.pathname === itemPath : false;
+//}
 // If we navigate to a category and it becomes active, it should automatically
 // expand itself
 function useAutoExpandActiveCategory({isActive, collapsed, updateCollapsed}) {
