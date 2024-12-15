@@ -102,7 +102,7 @@ const solutionCollection: Collection = {
 }
 
 export default defineConfig({
-  branch: "",
+  branch: process.env.TINA_BRANCH,
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
   token: process.env.TINA_TOKEN,
   media: {

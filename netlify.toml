@@ -1,0 +1,8 @@
+[build]
+  command = "npm run build && npm run tina:build"
+  publish = "public" # Or wherever your static files are generated
+
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
