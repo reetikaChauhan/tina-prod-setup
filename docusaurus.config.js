@@ -8,11 +8,15 @@ const darkCodeTheme = themes.dracula;
   module.exports = {
     title: "The Climate Tech Handbook",
     tagline: "solving the climate crisis.",
-    url: "https://www.climatetechhandbook.com",
+    url: "https://tranquil-custard-d6b19e.netlify.app",
     baseUrl: "/",
     onBrokenLinks: "ignore",
     onBrokenMarkdownLinks: "warn",
     favicon: "img/main/favicon.ico",
+    i18n: {
+      defaultLocale: 'en', // Default language is English
+      locales: ['en'], // Only one locale (English) for now
+    },
     organizationName: "The Climate Tech Handbook", // Usually your GitHub org/user name.
     projectName: "The Climate Tech Handbook", // Usually your repo name.
     plugins: [
@@ -26,10 +30,7 @@ const darkCodeTheme = themes.dracula;
         }
       ]
     ],
-    i18n: {
-      defaultLocale: 'en', // Default language is English
-      locales: ['en'], // Only one locale (English) for now
-    },
+   
     presets: [
       [
         "@docusaurus/preset-classic",
