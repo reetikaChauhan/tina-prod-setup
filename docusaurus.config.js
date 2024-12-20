@@ -8,7 +8,7 @@ const darkCodeTheme = themes.dracula;
   module.exports = {
     title: "The Climate Tech Handbook",
     tagline: "solving the climate crisis.",
-    url: "https://tranquil-custard-d6b19e.netlify.app",
+    url: "https://heroic-genie-93762f.netlify.app/",
     baseUrl: "/",
     onBrokenLinks: "ignore",
     onBrokenMarkdownLinks: "warn",
