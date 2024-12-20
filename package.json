@@ -5,7 +5,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "build": "npm run tina:build && docusaurus build",
+    "build": "tinacms build --local && docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
@@ -22,6 +22,7 @@
     "@docusaurus/theme-common": "^3.1.1",
     "@mdx-js/react": "3.0.0",
     "@svgr/webpack": "^8.1.0",
+    "@tinacms/auth": "^1.0.10",
     "@tinacms/cli": "^1.6.0",
     "classnames": "^2.5.1",
     "clsx": "^1.2.1",
@@ -38,7 +39,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
-    "tinacms": "^2.5.2"
+    "tinacms": "^2.5.2",
+    "tinacms-gitprovider-github": "^2.0.9"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.1.1",

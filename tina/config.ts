@@ -1,5 +1,10 @@
 import { Collection, TinaTemplate } from "@tinacms/cli";
 import { defineConfig, wrapFieldsWithMeta } from "tinacms";
+import { TinaCMS } from 'tinacms';
+import { NextAuthProvider } from 'next-auth/react';
+import { GoogleAuthProvider } from 'next-auth/providers/google';
+import { TinaAuthProvider } from '@tinacms/auth';
+import { GitHubProvider } from 'tinacms-gitprovider-github';
 
 const admonitionValues = ['note', 'tip', 'warning', 'important', 'info', 'caution', 'danger', 'question', 'podcast', 'newsletter', 'company', 'contribute', 'book', 'expert']
 const admonitionOptions = admonitionValues.map(v => {
@@ -100,11 +105,14 @@ const solutionCollection: Collection = {
     type: "image"
   }]
 }
+// TinaCMS configuration
 
 export default defineConfig({
-  branch: process.env.TINA_BRANCH,
-  clientId: '',
-  token: '',
+  branch: 'main',
+  clientId: process.env.TINA_CLIENT_ID, // Replace with your actual TinaCMS client ID
+  token: process.env.TINA_TOKEN , // Replace with your actual TinaCMS token
+  contentApiUrlOverride: '/api/tina/gql', // Backend API URL
+  authProvider: 'google',
   media: {
     tina: {
       mediaRoot: "img",
