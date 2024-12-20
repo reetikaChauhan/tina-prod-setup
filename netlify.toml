@@ -2,10 +2,10 @@
   command = "npm run build && npm run tina:build"
   publish = "build" # Or wherever your static files are generated
 
-[[functions]]
+[functions]
   directory = "functions"
   
-[[redirects]]
+[redirects]
   from = "/admin/*"
   to = "/admin/index.html"
   status = 200
