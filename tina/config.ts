@@ -103,14 +103,30 @@ const solutionCollection: Collection = {
 
 export default defineConfig({
   branch: process.env.TINA_BRANCH,
-  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
-  token: process.env.TINA_TOKEN,
+  clientId: '',
+  token: '',
   media: {
     tina: {
       mediaRoot: "img",
       publicFolder: "static"
     }
   },
+  cmsCallback: (cms) => {
+    // Determine the base URL based on environment (local or production)
+    const baseUrl = process.env.NODE_ENV === 'development'
+      ? 'http://localhost:8888'  // Local development (Netlify Dev)
+      : ''  // Production (Netlify automatically handles routing)
+  
+    cms.registerApi('google-auth', {
+      fetcher: async (url, options) => {
+        const res = await fetch(`${baseUrl}/.netlify/functions/auth${url}`, options); // Use the dynamic URL
+        if (!res.ok) throw new Error(res.statusText);
+        return res.json();
+      },
+    });
+    return cms;
+  },
+  
   build: {
     publicFolder: "static",
     outputFolder: "admin",
@@ -195,7 +211,7 @@ export default defineConfig({
         name: "docs",
         label: "Docs",
         path: "docs",
-        format: "mdx",
+        format: "md",
         fields: [{
             name: "title",
             label: "Title",
