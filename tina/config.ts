@@ -114,7 +114,7 @@ export default defineConfig({
   branch: 'main',
   clientId: process.env.TINA_CLIENT_ID, // Replace with your actual TinaCMS client ID
   token: process.env.TINA_TOKEN , // Replace with your actual TinaCMS token
-   // Update the path to point to the local Netlify function
+  contentApiUrlOverride: '/api/tina/gql',// Update the path to point to the local Netlify function
   authProvider: isLocal
     ? new LocalAuthProvider()
     : new UsernamePasswordAuthJSProvider(),
