@@ -1,10 +1,13 @@
 import { Collection, TinaTemplate } from "@tinacms/cli";
 import { defineConfig, wrapFieldsWithMeta } from "tinacms";
 import { TinaCMS } from 'tinacms';
-import { NextAuthProvider } from 'next-auth/react';
-import { GoogleAuthProvider } from 'next-auth/providers/google';
-import { TinaAuthProvider } from '@tinacms/auth';
-import { GitHubProvider } from 'tinacms-gitprovider-github';
+
+import {
+  TinaUserCollection,
+  UsernamePasswordAuthJSProvider,
+} from 'tinacms-authjs/dist/tinacms';
+import { LocalAuthProvider } from 'tinacms'
+
 
 const admonitionValues = ['note', 'tip', 'warning', 'important', 'info', 'caution', 'danger', 'question', 'podcast', 'newsletter', 'company', 'contribute', 'book', 'expert']
 const admonitionOptions = admonitionValues.map(v => {
@@ -106,33 +109,20 @@ const solutionCollection: Collection = {
   }]
 }
 // TinaCMS configuration
-
+const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === 'true';
 export default defineConfig({
   branch: 'main',
   clientId: process.env.TINA_CLIENT_ID, // Replace with your actual TinaCMS client ID
   token: process.env.TINA_TOKEN , // Replace with your actual TinaCMS token
-  contentApiUrlOverride: '/api/tina/gql', // Backend API URL
-  authProvider: 'google',
+   // Update the path to point to the local Netlify function
+  authProvider: isLocal
+    ? new LocalAuthProvider()
+    : new UsernamePasswordAuthJSProvider(),
   media: {
     tina: {
       mediaRoot: "img",
       publicFolder: "static"
     }
-  },
-  cmsCallback: (cms) => {
-    // Determine the base URL based on environment (local or production)
-    const baseUrl = process.env.NODE_ENV === 'development'
-      ? 'http://localhost:8888'  // Local development (Netlify Dev)
-      : ''  // Production (Netlify automatically handles routing)
-  
-    cms.registerApi('google-auth', {
-      fetcher: async (url, options) => {
-        const res = await fetch(`${baseUrl}/.netlify/functions/auth${url}`, options); // Use the dynamic URL
-        if (!res.ok) throw new Error(res.statusText);
-        return res.json();
-      },
-    });
-    return cms;
   },
   
   build: {
