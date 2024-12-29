@@ -1,6 +1,8 @@
 const { TinaNodeBackend, LocalBackendAuthentication } = require('@tinacms/datalayer');
 const { TinaAuthJSOptions, AuthJsBackendAuthentication } = require('tinacms-authjs');
-const databaseClient = require('../tina/__generated__/databaseClient');
+const path = require('path');
+const databaseClient = require(path.resolve(__dirname, '../tina/__generated__/databaseClient'));
+
 
 const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === 'true';
 
