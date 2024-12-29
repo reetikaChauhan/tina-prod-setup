@@ -1,5 +1,5 @@
 [build]
-  command = "npm run build  && npm run tina:build && npm run postbuild && esbuild index.js --bundle --minify --platform=node --target=node14 --outfile=dist/index.js "
+  command = "npm run build  && npm run tina:build && npm run postbuild "
   publish = "build" # Or wherever your static files are generated
 
 [functions]

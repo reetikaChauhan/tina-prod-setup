@@ -7,7 +7,6 @@
     "start": "docusaurus start",
     "build": "tinacms build --local && docusaurus build",
     "postbuild": "node scripts/sensitivedata.js" ,
-    "esbuild": "esbuild index.js --bundle --minify --platform=node --target=node14 --outfile=dist/index.js",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
