@@ -108,6 +108,9 @@ const solutionCollection: Collection = {
     type: "image"
   }]
 }
+
+const token = process.env.TINA_TOKEN 
+const cid = process.env.TINA_CLIENT_ID
 // TinaCMS configuration
 const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === 'true';
 export default defineConfig({
@@ -115,8 +118,8 @@ export default defineConfig({
     ? new LocalAuthProvider()
     : new UsernamePasswordAuthJSProvider(),
   branch: 'main',
-  clientId: process.env.TINA_CLIENT_ID, // Replace with your actual TinaCMS client ID
-  token: process.env.TINA_TOKEN , // Replace with your actual TinaCMS token
+  clientId: cid, 
+  token: token, 
   contentApiUrlOverride: '/api/tina/gql',// Update the path to point to the local Netlify function
   
   media: {
