@@ -1,5 +1,5 @@
 [build]
-  command = "npx @tinacms/cli init && npx @tinacms/cli build && npm run tina:build"
+  command = "npx @tinacms/cli build  --verbose && ls -R tina/__generated__ && npm run tina:build"
   publish = "build" # Or wherever your static files are generated
 
 [functions]

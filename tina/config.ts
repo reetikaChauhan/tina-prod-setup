@@ -129,6 +129,7 @@ export default defineConfig({
   build: {
     publicFolder: "static",
     outputFolder: "admin",
+    
   },
   schema: {
     collections: [

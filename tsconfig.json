@@ -21,7 +21,7 @@
   "include": [
     "src/**/*.ts", // All TypeScript files in the src folder
     "src/**/*.tsx" // All React TypeScript files in the src folder
-  ],
+, "src/lib/databaseConnection.js"  ],
   "exclude": [
     "node_modules", // Exclude dependencies
     "build" // Exclude the build output directory

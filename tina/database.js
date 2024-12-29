@@ -8,9 +8,9 @@ const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === 'true';
 
 // Determine the Git branch
 const branch = process.env.GITHUB_BRANCH;
-const token = process.env.GITHUB_PERSONAL_ACCESS_TOKEN as string;
-const owner = process.env.GITHUB_OWNER as string;
-const repo = process.env.GITHUB_REPO as string;
+const token = process.env.GITHUB_PERSONAL_ACCESS_TOKEN ;
+const owner = process.env.GITHUB_OWNER ;
+const repo = process.env.GITHUB_REPO ;
 // Throw an error if no branch is set
 if (!branch) {
   throw new Error(
@@ -33,12 +33,11 @@ export default isLocal
       }),
       // Redis database adapter configuration
       databaseAdapter: new RedisLevel({
-        redis:{
-          url: process.env.KV_REST_API_URL as string, // Redis URL
-          token: process.env.KV_REST_API_TOKEN as string, // Redis token
-        },
+        redis: new Redis({
+          url: process.env.KV_REST_API_URL , // Redis URL
+          token: process.env.KV_REST_API_TOKEN, // Redis token
+        }),
         debug: process.env.DEBUG === 'true', // Enable debugging if needed
-       
+        namespace: branch, // Use branch name as Redis namespace
       }),
-      namespace: branch, // Use branch name as Redis namespace
     });
