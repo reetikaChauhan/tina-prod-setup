@@ -6,7 +6,7 @@
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
     "build": "tinacms build --local && docusaurus build",
-    "postbuild": "node scripts/removeSensitiveData.js" ,
+    "postbuild": "node scripts/sensitivedata.js" ,
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",

@@ -1,7 +1,6 @@
 import { Collection, TinaTemplate } from "@tinacms/cli";
 import { defineConfig, wrapFieldsWithMeta } from "tinacms";
 import { TinaCMS } from 'tinacms';
-
 import {
   TinaUserCollection,
   UsernamePasswordAuthJSProvider,
