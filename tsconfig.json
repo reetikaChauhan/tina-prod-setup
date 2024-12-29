@@ -1,9 +1,29 @@
 {
-  // This file is not used in compilation. It is here just for a nice editor experience.
-  "extends": "@tsconfig/docusaurus/tsconfig.json",
   "compilerOptions": {
-    "jsx": "react",
-    "baseUrl": ".",
-    "module": "Node16"
-  }
+    "target": "es6", // Modern JavaScript features
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext" // Enables ESNext features
+    ],
+    "allowJs": true, // Allow mixing JavaScript files if necessary
+    "skipLibCheck": true, // Avoid checking declaration files
+    "strict": true, // Enable all strict type-checking options
+    "forceConsistentCasingInFileNames": true, // Enforce consistent file casing
+    "noEmit": true, // Do not emit compiled JS files
+    "module": "esnext", // Use ESNext module system
+    "moduleResolution": "node", // Resolve modules as Node.js does
+    "resolveJsonModule": true, // Enable importing JSON files
+    "isolatedModules": true, // Ensure each file can be transpiled independently
+    "jsx": "react-jsx", // Use the new JSX transform (React 17+)
+    "incremental": true // Enable incremental builds for faster compilation
+  },
+  "include": [
+    "src/**/*.ts", // All TypeScript files in the src folder
+    "src/**/*.tsx" // All React TypeScript files in the src folder
+  ],
+  "exclude": [
+    "node_modules", // Exclude dependencies
+    "build" // Exclude the build output directory
+  ]
 }

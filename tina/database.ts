@@ -7,8 +7,10 @@ import { RedisLevel } from 'upstash-redis-level';
 const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === 'true';
 
 // Determine the Git branch
-const branch = process.env.GITHUB_BRANCH || 'main';
-
+const branch = process.env.GITHUB_BRANCH;
+const token = process.env.GITHUB_PERSONAL_ACCESS_TOKEN as string;
+const owner = process.env.GITHUB_OWNER as string;
+const repo = process.env.GITHUB_REPO as string;
 // Throw an error if no branch is set
 if (!branch) {
   throw new Error(
@@ -24,18 +26,19 @@ export default isLocal
     createDatabase({
       // GitHub provider configuration
       gitProvider: new GitHubProvider({
-        repo: process.env.GITHUB_REPO, // Repository name
-        owner: process.env.GITHUB_OWNER, // GitHub username/organization
-        token: process.env.GITHUB_PERSONAL_ACCESS_TOKEN, // GitHub token
+        repo,
+        owner, // GitHub username/organization
+        token,
         branch, // Git branch
       }),
       // Redis database adapter configuration
       databaseAdapter: new RedisLevel({
-        redis: new Redis({
-          url: process.env.KV_REST_API_URL, // Redis URL
-          token: process.env.KV_REST_API_TOKEN, // Redis token
-        }),
+        redis:{
+          url: process.env.KV_REST_API_URL as string, // Redis URL
+          token: process.env.KV_REST_API_TOKEN as string, // Redis token
+        },
         debug: process.env.DEBUG === 'true', // Enable debugging if needed
-        namespace: branch, // Use branch name as Redis namespace
+       
       }),
+      namespace: branch, // Use branch name as Redis namespace
     });
