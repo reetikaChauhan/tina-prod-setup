@@ -1,9 +1,11 @@
 [build]
   command = "npm run build  && npm run tina:build && npm run postbuild "
   publish = "build" # Or wherever your static files are generated
+  functions = "dist/functions"
 
 [functions]
   directory = "functions"
+  node_bundler = "esbuild"
   
 [[redirects]]
   from = "/admin/*"
