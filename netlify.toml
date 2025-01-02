@@ -6,8 +6,8 @@
 [functions]
   directory = "functions"
   node_bundler = "esbuild"
-  
+
 [[redirects]]
-  from = "/admin/*"
-  to = "/admin/index.html"
+  from = "/api/tina/gql"
+  to = "/.netlify/functions/tina-graphql"
   status = 200
