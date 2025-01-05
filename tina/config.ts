@@ -120,7 +120,7 @@ export default defineConfig({
   clientId: cid, 
   token: token, 
   
-  contentApiUrlOverride: '/api/tina/gql',// Update the path to point to the local Netlify function
+  contentApiUrlOverride: '/tina/gql',// Update the path to point to the local Netlify function
   
   media: {
     tina: {
