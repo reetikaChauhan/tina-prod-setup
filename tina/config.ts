@@ -119,6 +119,7 @@ export default defineConfig({
   branch: 'main',
   clientId: cid, 
   token: token, 
+  
   contentApiUrlOverride: '/api/tina/gql',// Update the path to point to the local Netlify function
   
   media: {
@@ -133,6 +134,7 @@ export default defineConfig({
     outputFolder: "admin",
     
   },
+
   schema: {
     collections: [
     //   {
