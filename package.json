@@ -5,7 +5,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "build": "tinacms build --local && docusaurus build",
+    "build": "tinacms build --local && docusaurus build  && cp -R tina build/tina",
     "postbuild": "node scripts/sensitivedata.js",
     "build:functions": "zip-it-and-ship-it functions dist/functions",
     "swizzle": "docusaurus swizzle",
