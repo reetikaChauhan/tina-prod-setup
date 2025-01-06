@@ -6,7 +6,8 @@ import {
   UsernamePasswordAuthJSProvider,
 } from 'tinacms-authjs/dist/tinacms';
 import { LocalAuthProvider } from 'tinacms'
-
+import { AuthJsBackendAuthProvider } from 'tinacms-authjs';
+import databaseClient from './__generated__/databaseClient';
 
 const admonitionValues = ['note', 'tip', 'warning', 'important', 'info', 'caution', 'danger', 'question', 'podcast', 'newsletter', 'company', 'contribute', 'book', 'expert']
 const admonitionOptions = admonitionValues.map(v => {
@@ -114,13 +115,20 @@ const cid = process.env.TINA_CLIENT_ID
 const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === 'true';
 export default defineConfig({
   authProvider: isLocal
-    ? new LocalAuthProvider()
-    : new UsernamePasswordAuthJSProvider(),
-  branch: 'main',
-  clientId: cid, 
-  token: token, 
-  
-  contentApiUrlOverride: 'api/tina/gql',// Update the path to point to the local Netlify function
+    ? new LocalAuthProvider() // Use LocalAuthProvider for local development
+    : AuthJsBackendAuthProvider({
+        authOptions: {
+          // Auth.js provider setup
+          clientId: process.env.CLIENT_ID , // Google OAuth Client ID
+          clientSecret: process.env.CLIENT_SECRET, // Google OAuth Client Secret
+          databaseClient, // Database client for storing user info
+          secret: process.env.AUTH_SECRET, // Your session secret
+        },
+      }),
+branch: 'main', // Ensure the correct branch name is set
+clientId: process.env.CLIENT_ID, // Google OAuth Client ID (public)
+token: process.env.GITHUB_PERSONAL_ACCESS_TOKEN,
+contentApiUrlOverride: '/.netlify/functions/tina-graphql',// Update the path to point to the local Netlify function
   
   media: {
     tina: {

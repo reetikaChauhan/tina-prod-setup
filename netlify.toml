@@ -8,6 +8,6 @@
   node_bundler = "esbuild"
 
 [[redirects]]
-  from = "/api/tina/gql"
-  to = "/.netlify/functions/tina-graphql"
+ from = "/admin/*"
+  to = "/admin/index.html"
   status = 200
