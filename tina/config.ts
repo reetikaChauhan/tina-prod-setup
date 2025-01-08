@@ -121,7 +121,7 @@ export default defineConfig({
 branch: 'main', // Ensure the correct branch name is set
 clientId: process.env.CLIENT_ID, // Google OAuth Client ID (public)
 token: process.env.GITHUB_PERSONAL_ACCESS_TOKEN,
-contentApiUrlOverride: '/.netlify/functions/tina-graphql',// Update the path to point to the local Netlify function
+contentApiUrlOverride: '/api/tina/gql',// Update the path to point to the local Netlify function
   
   media: {
     tina: {
