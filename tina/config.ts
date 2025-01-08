@@ -9,6 +9,7 @@ import { LocalAuthProvider } from 'tinacms'
 import { AuthJsBackendAuthProvider } from 'tinacms-authjs';
 import databaseClient from './__generated__/databaseClient';
 
+
 const admonitionValues = ['note', 'tip', 'warning', 'important', 'info', 'caution', 'danger', 'question', 'podcast', 'newsletter', 'company', 'contribute', 'book', 'expert']
 const admonitionOptions = admonitionValues.map(v => {
   const first = v.slice(0, 1)
@@ -116,15 +117,7 @@ const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === 'true';
 export default defineConfig({
   authProvider: isLocal
     ? new LocalAuthProvider() // Use LocalAuthProvider for local development
-    : AuthJsBackendAuthProvider({
-        authOptions: {
-          // Auth.js provider setup
-          clientId: process.env.CLIENT_ID , // Google OAuth Client ID
-          clientSecret: process.env.CLIENT_SECRET, // Google OAuth Client Secret
-          databaseClient, // Database client for storing user info
-          secret: process.env.AUTH_SECRET, // Your session secret
-        },
-      }),
+    : new UsernamePasswordAuthJSProvider(),
 branch: 'main', // Ensure the correct branch name is set
 clientId: process.env.CLIENT_ID, // Google OAuth Client ID (public)
 token: process.env.GITHUB_PERSONAL_ACCESS_TOKEN,
