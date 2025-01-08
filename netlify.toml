@@ -8,6 +8,7 @@
   node_bundler = "esbuild"
 
 [[redirects]]
- from = "/admin/*"
-  to = "/admin/index.html"
+ from = "/api/tina/*"
+  to = "/.netlify/functions/tina"
   status = 200
+  force = true
