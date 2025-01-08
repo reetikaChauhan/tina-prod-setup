@@ -1,5 +1,5 @@
 import express from 'express'
-import type { RequestHandler } from 'express'
+//import type { RequestHandler } from 'express'
 import cookieParser from 'cookie-parser'
 import ServerlessHttp from 'serverless-http'
 import { TinaNodeBackend, LocalBackendAuthProvider } from '@tinacms/datalayer'
