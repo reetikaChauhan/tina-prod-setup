@@ -6,7 +6,7 @@ import { AuthJsBackendAuthProvider, TinaAuthJSOptions } from 'tinacms-authjs';
 import { OAuth2Client } from 'google-auth-library';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import { databaseClient } from '../../tina/__generated__/databaseClient';
+import { databaseClient } from '../tina/__generated__/databaseClient';
 
 dotenv.config();
 
